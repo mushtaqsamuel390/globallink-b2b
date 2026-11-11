@@ -1,53 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#071a2b">
+<title>GlobalLink B2B — Connect Trade Worldwide</title>
+<style>
+:root{--navy:#071a2b;--panel:#102b42;--panel2:#14364f;--cyan:#55dfd0;--blue:#1685c8;--gold:#f5bd63;--text:#f4f8fc;--muted:#a9bdcd;--line:#ffffff25;--danger:#ff9b9b;--ok:#82e0b5}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% 0,#16445e 0,#0a263d 38%,#061727 82%);color:var(--text);font:15px Inter,system-ui,Segoe UI,Arial,sans-serif;min-height:100vh}button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--cyan)}.wrap{max-width:1180px;margin:auto;padding:22px}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line);padding:16px 22px;max-width:1240px;margin:auto}.brand{font-weight:900;letter-spacing:.8px;font-size:20px}.brand small{display:block;font-size:9px;color:var(--muted);letter-spacing:2px}.pill{border:1px solid var(--line);padding:8px 12px;border-radius:30px;color:var(--muted);font-size:12px}.hero{text-align:center;padding:45px 10px 22px}.eyebrow{color:var(--cyan);letter-spacing:2px;font-size:11px}.hero h1{font-size:clamp(36px,6vw,68px);line-height:1.04;margin:15px 0}.hero h1 span{background:linear-gradient(90deg,var(--cyan),#8bc8ff,var(--gold));color:transparent;background-clip:text}.hero p{max-width:720px;margin:auto;color:#bfd0dd;line-height:1.7}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.three{grid-template-columns:repeat(3,minmax(0,1fr))}.card{background:linear-gradient(145deg,#143d58e8,#0b263beF);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 16px 45px #0002}.role{min-height:160px;text-align:left;color:white}.role h2{margin:8px 0}.muted{color:var(--muted)}.section{margin:22px 0}.hidden{display:none!important}label{display:block;font-size:13px;color:#dce9f2;margin:12px 0 6px}input,select,textarea{width:100%;border:1px solid #ffffff30;border-radius:10px;padding:12px;background:#071c2d;color:white;outline:none}input:focus,select:focus,textarea:focus{border-color:var(--cyan)}input[type=file]{padding:9px}textarea{min-height:90px;resize:vertical}.btn{border:0;border-radius:10px;padding:12px 17px;font-weight:800;color:#06283a;background:linear-gradient(90deg,var(--cyan),#3999dc)}.btn.secondary{background:#173b55;color:#e9f4fb;border:1px solid #55dfd088}.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--text)}.btn:disabled{opacity:.5;cursor:not-allowed}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}.status{font-size:13px;line-height:1.6;margin-top:10px;color:#9fe8df;overflow-wrap:anywhere}.status.error{color:var(--danger)}.status.ok{color:var(--ok)}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}.tab{padding:9px 13px;border:1px solid var(--line);border-radius:25px;background:#0b263b;color:var(--muted)}.tab.active{border-color:var(--cyan);color:var(--cyan)}.row{display:flex;gap:12px;align-items:center}.row>*{flex:1}.spinner{display:inline-block;width:16px;height:16px;border:2px solid #06283a55;border-top-color:#06283a;border-radius:50%;animation:spin .7s linear infinite;vertical-align:-3px;margin-right:8px}@keyframes spin{to{transform:rotate(360deg)}}.timer{font-size:12px;color:var(--gold);margin-top:8px;min-height:18px}.statgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat{padding:13px;background:#071c2d;border:1px solid var(--line);border-radius:12px}.stat b{display:block;font-size:21px;color:var(--cyan)}.item{padding:14px 0;border-bottom:1px solid var(--line)}.item:last-child{border:0}.tag{font-size:11px;border:1px solid var(--line);border-radius:20px;padding:4px 8px;color:var(--muted)}.notice{background:#f5bd6310;border:1px solid #f5bd6344;color:#f5d99d;border-radius:12px;padding:12px;font-size:12px;line-height:1.6}.footer{text-align:center;color:#829bad;border-top:1px solid var(--line);padding:24px;font-size:12px;margin-top:45px}.right{margin-left:auto}.danger{color:var(--danger)}@media(max-width:700px){.grid,.three{grid-template-columns:1fr}.wrap{padding:15px}.top{padding:13px 15px}.hero{padding-top:30px}.row{display:block}.statgrid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header class="top"><div class="brand">🌐 GLOBALLINK<small>INTERNATIONAL TRADE NETWORK</small></div><div class="row" style="flex:0 1 auto"><span class="pill">FREE GLOBAL B2B NETWORK</span><button class="btn ghost" id="navLogin" onclick="showAuth('login')">Sign in</button></div></header>
+<main class="wrap">
+<section id="landing">
+ <div class="hero"><div class="eyebrow">GLOBAL BUSINESS CONNECTIONS</div><h1>Trade Beyond<br><span>Boundaries.</span></h1><p>A free global business network helping buyers and suppliers discover trade opportunities, connect across borders and start meaningful business conversations.</p></div>
+ <div class="grid section">
+  <button class="card role" onclick="showAuth('signup','supplier')"><div style="font-size:30px">🏭</div><h2>I AM A SUPPLIER</h2><p class="muted">Showcase your company and products to buyers worldwide.</p><b>Register as Supplier →</b></button>
+  <button class="card role" onclick="showAuth('signup','buyer')"><div style="font-size:30px">🛒</div><h2>I AM A BUYER</h2><p class="muted">Discover products and contact suppliers for business inquiries.</p><b>Register as Buyer →</b></button>
+ </div>
+ <div class="grid three section"><div class="card"><h3>🌍 Global access</h3><p class="muted">Connect across countries and industries.</p></div><div class="card"><h3>🔒 Account security</h3><p class="muted">Email and optional SMS verification through Supabase Auth.</p></div><div class="card"><h3>🤝 Direct inquiries</h3><p class="muted">Send trade inquiries and manage conversations.</p></div></div>
+ <div class="notice">GlobalLink is a free-access networking platform initiative by Heavenly Hand Ministry. Registration does not guarantee a transaction or business verification. KYC/KYB status remains pending until an authorized review is completed.</div>
+</section>
 
-{
-  "id": "5a9e9d29-e693-4550-9fd0-a9d19ce9bcda",
-  "date": "2026-11-11T08:04:00.935Z",
-  "method": "POST",
-  "pathname": "/auth/v1/otp",
-  "status": "500",
-  "timestamp": "2026-11-11T08:04:00.935000",
-  "level": "error",
-  "event_message": "POST | 500 | https://zlwpxalwuvflqllqwnfx.supabase.co/auth/v1/otp | Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Mobile Safari/537.36",
-  "log_type": "edge",
-  "log_count": null,
-  "logs": [],
-  "auth_user": null,
-  "metadata": {
-    "request.headers.content_length": "145",
-    "request.headers.cf_connecting_ip": "72.255.19.89",
-    "trace_id": "01a1c9a2a12778ceb7d99af932cd1bdd",
-    "request_id": "01a1c9a2-a127-78ce-b7d9-9af932cd1bdd",
-    "request.headers.referer": "https://mushtaqsamuel390.github.io/",
-    "request.cf.region": "Punjab",
-    "request.sb.apikey.apikey.prefix": "sb_publishable_XcLrT",
-    "response.headers.x_sb_error_code": "unexpected_failure",
-    "request.cf.asOrganization": "Cyber Internet Services Pakistan",
-    "request.host": "zlwpxalwuvflqllqwnfx.supabase.co",
-    "request.headers.cf_ray": "a58bc8a1cf71b672",
-    "request.cf.botManagement.ja4": "q13d0313h3_55b375c5d22e_b0954bf1abdf",
-    "request.cf.clientTrustScore": "92",
-    "response.headers.content_type": "application/json",
-    "request.url": "https://zlwpxalwuvflqllqwnfx.supabase.co/auth/v1/otp",
-    "request.cf.country": "PK",
-    "request.sb.apikey.apikey.hash": "sgET1BiN7Y-XMq7r5MkaCO2MG8CznHtwbCbnrqLJirg",
-    "request.headers.content_type": "application/json;charset=UTF-8",
-    "response.headers.sb_gateway_version": "1",
-    "span_id": "1a70e18e99d65af0",
-    "request.headers.user_agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Mobile Safari/537.36",
-    "identifier": "zlwpxalwuvflqllqwnfx",
-    "response.headers.cf_cache_status": "DYNAMIC",
-    "response.headers.x_envoy_attempt_count": "1",
-    "request.cf.city": "Gujranwala",
-    "request.headers.accept": "*/*",
-    "response.status_code": "500",
-    "request.cf.colo": "LHE",
-    "request.headers.x_client_info": "supabase-js/2.119.0; runtime=web",
-    "response.headers.cf_ray": "a58bc8a3c9048577-LHE",
-    "request.sb.apikey.authorization.prefix": "sb_publishable_XcLrT",
-    "response.headers.content_length": "74",
-    "response.origin_time": "798",
-    "request.method": "POST",
-    "request.path": "/auth/v1/otp",
-    "response.headers.x_envoy_upstream_service_time": "239",
-    "project": "zlwpxalwuvflqllqwnfx"
+<section id="authView" class="hidden section">
+ <button class="btn ghost" onclick="showLanding()">← Back</button>
+ <div class="card" style="max-width:760px;margin:18px auto">
+  <h2 id="authTitle">Create your account</h2><p class="muted" id="authIntro">Complete the form to begin.</p>
+  <div id="signupFields">
+   <div class="grid"><div><label>Account type *</label><select id="role"><option value="buyer">Buyer</option><option value="supplier">Supplier</option></select></div><div><label>Country *</label><select id="country"></select></div></div>
+   <div class="grid"><div><label>City *</label><input id="city" required placeholder="City"></div><div><label>Full name *</label><input id="fullName" required placeholder="Full name"></div></div>
+   <label>Email address *</label><input id="email" type="email" autocomplete="email" required placeholder="name@example.com">
+   <div class="row"><div><label>Mobile country code</label><select id="dialCode"><option value="+1">United States (+1)</option><option value="+44">United Kingdom (+44)</option><option value="+92">Pakistan (+92)</option><option value="+971">UAE (+971)</option><option value="+91">India (+91)</option><option value="+49">Germany (+49)</option></select></div><div><label>Mobile number</label><input id="phone" type="tel" placeholder="Phone number"></div></div>
+   <div id="companyFields"><label>Registered company name <span class="muted">(required for supplier)</span></label><input id="company" placeholder="Legal company name"><div class="grid"><div><label>Business type</label><select id="businessType"><option>Manufacturer</option><option>Wholesaler</option><option>Distributor</option><option>Exporter</option><option>Importer</option><option>Trading Company</option><option>Service Provider</option><option>Other</option></select></div><div><label>Company registration / tax ID</label><input id="taxId" placeholder="Registration or tax number"></div></div></div>
+  </div>
+  <div id="loginFields" class="hidden"><label>Email address</label><input id="loginEmail" type="email" placeholder="name@example.com"></div>
+  <div class="actions"><button class="btn" id="emailSend" onclick="sendEmailCode()"> <span id="emailSpin" class="spinner hidden"></span><span id="emailSendText">Send email verification code</span></button><button class="btn secondary" onclick="sendSmsCode()">Send SMS code</button></div>
+  <div id="emailTimer" class="timer"></div><div id="authStatus" class="status" aria-live="polite"></div>
+  <div id="verifyPanel" class="hidden">
+   <label>Email verification code (8 digits) *</label><input id="emailOtp" inputmode="numeric" maxlength="8" placeholder="12345678">
+   <button class="btn" style="margin-top:10px" onclick="verifyEmailCode()">Verify email</button>
+   <div class="section"><label>SMS verification code (6 digits)</label><input id="smsOtp" inputmode="numeric" maxlength="6" placeholder="123456"><button class="btn secondary" style="margin-top:10px" onclick="verifySmsCode()">Verify mobile</button></div>
+  </div>
+ </div>
+</section>
+
+<section id="appView" class="hidden section">
+ <div class="row"><div><h2 id="welcome">Your GlobalLink workspace</h2><p class="muted" id="accountMeta"></p></div><button class="btn ghost right" onclick="signOut()">Sign out</button></div>
+ <div class="tabs">
+  <button class="tab active" data-tab="overview" onclick="openTab('overview')">Overview</button>
+  <button class="tab" data-tab="profile" onclick="openTab('profile')">Profile & verification</button>
+  <button class="tab" data-tab="products" onclick="openTab('products')">Products</button>
+  <button class="tab" data-tab="rfqs" onclick="openTab('rfqs')">Trade inquiries</button>
+ </div>
+ <div id="tab-overview" class="card"><h3>Account overview</h3><div class="statgrid"><div class="stat"><b id="emailState">—</b><small>Email</small></div><div class="stat"><b id="phoneState">—</b><small>Mobile</small></div><div class="stat"><b id="kycState">Pending</b><small>Identity / business review</small></div></div><p class="muted">Use the tabs to complete your profile, list products (suppliers), and send or review trade inquiries.</p></div>
+ <div id="tab-profile" class="card hidden"><h3>Profile & verification</h3><div class="grid"><div><label>Full name</label><input id="pName"></div><div><label>Country</label><input id="pCountry"></div><div><label>City</label><input id="pCity"></div><div><label>Mobile</label><input id="pPhone"></div></div><div id="pCompanyBlock"><label>Company name</label><input id="pCompany"><label>Business type</label><input id="pBusinessType"><label>Tax / registration number</label><input id="pTax"></div><label>Profile photo</label><input type="file" id="photoFile" accept="image/*"><label>Identity / company document (PDF or image)</label><input type="file" id="docFile" accept="image/*,.pdf"><div class="actions"><button class="btn" onclick="saveProfile()">Save profile</button><button class="btn secondary" onclick="uploadVerificationFiles()">Upload verification documents</button></div><div id="profileStatus" class="status"></div><div class="notice">Uploaded identity and company documents are private. Submitting a document does not mean it is verified. An authorized reviewer must approve it.</div></div>
+ <div id="tab-products" class="card hidden"><h3>Supplier product listings</h3><div id="productForm"><label>Product name *</label><input id="productName"><div class="grid"><div><label>Category</label><input id="productCategory" placeholder="e.g. Textiles"></div><div><label>Price (USD, optional)</label><input id="productPrice" type="number" min="0" step="0.01"></div></div><label>Description</label><textarea id="productDescription"></textarea><button class="btn" onclick="addProduct()">Publish product</button></div><div id="productList" class="section muted">Loading products…</div></div>
+ <div id="tab-rfqs" class="card hidden"><h3>Trade inquiries / RFQs</h3><div id="rfqCompose"><label>Select supplier *</label><select id="rfqSupplier"><option value="">Loading suppliers…</option></select><label>Subject *</label><input id="rfqSubject" placeholder="Product inquiry"><label>Message *</label><textarea id="rfqMessage"></textarea><button class="btn" onclick="sendRfq()">Send inquiry</button></div><div id="rfqList" class="section muted">Loading inquiries…</div></div>
+</section>
+</main>
+<footer class="footer">© 2026 GlobalLink B2B · A Platform Initiative by Heavenly Hand Ministry · Free global business networking</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+/* REQUIRED: paste your Supabase Project URL and publishable/anon key below.
+   Never put a service_role key in this public HTML file. */
+const SUPABASE_URL = "https://zlwpxalwuvflqllqwnfx.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_XcLrTyoIh9H-do2dczdoGg_wwnsvlTs";
+let sb = null, currentUser = null, accountRole = "buyer", emailCountdown = null, emailSeconds = 0;
+const $ = id => document.getElementById(id);
+const status = (id, text, bad=false) => { const el=$(id); if(el){el.textContent=text;el.className='status'+(bad?' error':' ok');} };
+function initSupabase(){
+ if(!window.supabase){status('authStatus','Supabase library could not load. Check internet/CDN access.',true);return;}
+ if(SUPABASE_URL.startsWith('PASTE_')||SUPABASE_ANON_KEY.startsWith('PASTE_')){status('authStatus','Setup required: add your Supabase Project URL and publishable/anon key in this HTML file.',true);return;}
+ sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
+ sb.auth.onAuthStateChange((_event,session)=>{if(session?.user){currentUser=session.user;loadWorkspace();}});
+ sb.auth.getSession().then(({data})=>{if(data.session){currentUser=data.session.user;loadWorkspace();}});
+}
+function showLanding(){$('landing').classList.remove('hidden');$('authView').classList.add('hidden');$('appView').classList.add('hidden');}
+function showAuth(mode,role='buyer'){
+ $('landing').classList.add('hidden');$('appView').classList.add('hidden');$('authView').classList.remove('hidden');
+ $('signupFields').classList.toggle('hidden',mode==='login');$('loginFields').classList.toggle('hidden',mode!=='login');
+ $('authTitle').textContent=mode==='login'?'Sign in to GlobalLink':'Create your GlobalLink account';
+ $('authIntro').textContent=mode==='login'?'We will send a one-time code to your email.':'Register as a buyer or supplier. Email verification is required.';
+ $('role').value=role;accountRole=role;$('authStatus').textContent='';$('verifyPanel').classList.add('hidden');
+}
+function startCountdown(){
+ clearInterval(emailCountdown);emailSeconds=60;$('emailSend').disabled=true;
+ $('emailSendText').textContent='Resend email code';
+ $('emailTimer').textContent='You can request another code in 60 seconds.';
+ emailCountdown=setInterval(()=>{emailSeconds--;$('emailTimer').textContent=emailSeconds>0?`You can request another code in ${emailSeconds} seconds.`:'You can request a new email code now.';if(emailSeconds<=0){clearInterval(emailCountdown);emailCountdown=null;$('emailSend').disabled=false;}},1000);
+}
+async function sendEmailCode(){
+ if(!sb){status('authStatus','Supabase is not configured. Add the project URL and public key first.',true);return;}
+ const login=$('loginFields').classList.contains('hidden')===false;
+ const email=(login?$('loginEmail').value:$('email').value).trim().toLowerCase();
+ if(!email){status('authStatus','Enter a valid email address.',true);return;}
+ if(!login){
+  accountRole=$('role').value;
+  for(const id of ['fullName','city'])if(!$ (id).value.trim()){status('authStatus','Complete your name and city first.',true);return;}
+  if(accountRole==='supplier'&&!$('company').value.trim()){status('authStatus','Supplier registration requires a registered company name.',true);return;}
+ }
+ $('emailSend').disabled=true;$('emailSpin').classList.remove('hidden');$('emailSendText').textContent='Sending…';
+ try{
+  const options={shouldCreateUser:!login,data:login?undefined:{role:accountRole,full_name:$('fullName').value.trim(),country:$('country').value,city:$('city').value.trim(),phone:$('phone').value.trim()?$('dialCode').value+$('phone').value.trim():null,company_name:$('company').value.trim(),business_type:$('businessType').value,tax_id:$('taxId').value.trim()}};
+  const {error}=await sb.auth.signInWithOtp({email,options});if(error)throw error;
+  $('verifyPanel').classList.remove('hidden');status('authStatus','Email code request accepted. Check your inbox and spam folder.');startCountdown();
+ }catch(e){status('authStatus','Could not send email code: '+e.message,true);$('emailSend').disabled=false;$('emailSendText').textContent='Send email verification code';}
+ finally{$('emailSpin').classList.add('hidden');}
+}
+async function verifyEmailCode(){
+ if(!sb)return;const login=$('loginFields').classList.contains('hidden')===false;
+ const email=(login?$('loginEmail').value:$('email').value).trim().toLowerCase(),token=$('emailOtp').value.trim();
+ if(!/^\d{8}$/.test(token)){status('authStatus','Enter the 8-digit email verification code.',true);return;}
+ try{const {data,error}=await sb.auth.verifyOtp({email,token,type:'email'});if(error)throw error;currentUser=data.user;status('authStatus','Email verified. Opening your workspace…');await loadWorkspace();}
+ catch(e){status('authStatus','Email verification failed: '+e.message,true);}
+}
+async function sendSmsCode(){
+ if(!sb){status('authStatus','Supabase is not configured.',true);return;}
+ const phone=$('dialCode').value+$('phone').value.trim();if(!/^\+\d{7,15}$/.test(phone)){status('authStatus','Enter a valid phone number including country code.',true);return;}
+ const {data:{session}}=await sb.auth.getSession();
+ if(!session){status('authStatus','Verify your email first, then request SMS verification from your signed-in account.',true);return;}
+ try{const {error}=await sb.auth.updateUser({phone});if(error)throw error;$('verifyPanel').classList.remove('hidden');status('authStatus','SMS verification code requested for your account. Enter the 6-digit code below.');}
+ catch(e){status('authStatus','Could not send SMS code: '+e.message,true);}
+}
+async function verifySmsCode(){
+ const phone=$('dialCode').value+$('phone').value.trim(),token=$('smsOtp').value.trim();
+ if(!/^\d{6}$/.test(token)){status('authStatus','Enter the 6-digit SMS code.',true);return;}
+ try{const {error}=await sb.auth.verifyOtp({phone,token,type:'sms'});if(error)throw error;status('authStatus','Mobile number verified.');}
+ catch(e){status('authStatus','SMS verification failed: '+e.message,true);}
+}
+async function loadWorkspace(){
+ if(!sb||!currentUser)return;
+ $('landing').classList.add('hidden');$('authView').classList.add('hidden');$('appView').classList.remove('hidden');
+ const {data:profile,error}=await sb.from('profiles').select('*').eq('id',currentUser.id).maybeSingle();
+ if(error){status('profileStatus','Profile read error: '+error.message,true);return;}
+ const meta=currentUser.user_metadata||{};
+ $('welcome').textContent='Welcome, '+(profile?.full_name||meta.full_name||currentUser.email);
+ $('accountMeta').textContent=(profile?.role||meta.role||'buyer').toUpperCase()+' · Account ID: '+currentUser.id;
+ $('emailState').textContent=currentUser.email_confirmed_at?'Verified':'Pending';
+ $('phoneState').textContent=currentUser.phone_confirmed_at?'Verified':'Not verified';
+ $('kycState').textContent=profile?.verification_status||'pending';
+ $('pName').value=profile?.full_name||meta.full_name||'';
+ $('pCountry').value=profile?.country||meta.country||'';
+ $('pCity').value=profile?.city||meta.city||'';
+ $('pPhone').value=profile?.phone||meta.phone||'';
+ accountRole=profile?.role||meta.role||'buyer';
+ $('pCompanyBlock').classList.toggle('hidden',accountRole!=='supplier');
+ $('pCompany').value=profile?.company_name||meta.company_name||'';
+ $('pBusinessType').value=profile?.business_type||meta.business_type||'';
+ $('pTax').value=profile?.tax_id||meta.tax_id||'';
+ await loadProducts();await loadSuppliers();await loadRfqs();
+}
+async function saveProfile(){
+ const payload={id:currentUser.id,role:accountRole,full_name:$('pName').value.trim(),country:$('pCountry').value.trim(),city:$('pCity').value.trim(),phone:$('pPhone').value.trim(),company_name:$('pCompany').value.trim()||null,business_type:$('pBusinessType').value.trim()||null,tax_id:$('pTax').value.trim()||null};
+ const {error}=await sb.from('profiles').upsert(payload);if(error){status('profileStatus','Could not save profile: '+error.message,true);return;}status('profileStatus','Profile saved.');
+}
+async function uploadVerificationFiles(){
+ const photo=$('photoFile').files[0],doc=$('docFile').files[0];if(!photo&&!doc){status('profileStatus','Choose a profile photo or verification document first.',true);return;}
+ try{
+  for(const [file,kind] of [[photo,'profile'],[doc,'verification']])if(file){
+   const safe=file.name.replace(/[^a-zA-Z0-9._-]/g,'_'),path=`${currentUser.id}/${kind}/${Date.now()}_${safe}`;
+   const {error}=await sb.storage.from('private-verification').upload(path,file,{upsert:false,contentType:file.type||'application/octet-stream'});if(error)throw error;
+   const {error:dbErr}=await sb.from('verification_documents').insert({user_id:currentUser.id,document_type:kind,storage_path:path,file_name:file.name,mime_type:file.type||null});
+   if(dbErr)throw dbErr;
   }
+  status('profileStatus','Upload completed. Verification status remains pending until an authorized review.');
+ }catch(e){status('profileStatus','Upload failed: '+e.message,true);}
+}
+async function addProduct(){
+ if(accountRole!=='supplier'){alert('Only supplier accounts can list products.');return;}
+ const name=$('productName').value.trim();if(!name){alert('Enter a product name.');return;}
+ const {error}=await sb.from('products').insert({supplier_id:currentUser.id,name,category:$('productCategory').value.trim(),description:$('productDescription').value.trim(),price_usd:$('productPrice').value?Number($('productPrice').value):null});
+ if(error){alert('Product not saved: '+error.message);return;}['productName','productCategory','productDescription','productPrice'].forEach(id=>$(id).value='');await loadProducts();
+}
+async function loadProducts(){
+ if(!sb)return;const {data,error}=await sb.from('products').select('id,name,category,description,price_usd,status,created_at').order('created_at',{ascending:false}).limit(30);
+ $('productList').innerHTML='';if(error){$('productList').textContent='Could not load products: '+error.message;return;}
+ if(!data?.length){$('productList').textContent='No public products yet. Supplier listings appear here after the business is approved.';return;}
+ data.forEach(p=>{const d=document.createElement('div');d.className='item';d.innerHTML=`<b></b><div class="muted"></div><small class="tag"></small>`;d.querySelector('b').textContent=p.name;d.querySelector('.muted').textContent=(p.category||'General')+' · '+(p.description||'');d.querySelector('.tag').textContent=p.price_usd==null?'Contact for price':'$'+p.price_usd; $('productList').appendChild(d);});
+}
+async function loadSuppliers(){
+ const sel=$('rfqSupplier');if(accountRole!=='buyer'){sel.innerHTML='<option value="">Buyer accounts send RFQs</option>';return;}
+ const {data,error}=await sb.rpc('get_public_suppliers');
+ sel.innerHTML='<option value="">Choose an approved supplier</option>';
+ if(error){const o=document.createElement('option');o.textContent='Supplier directory unavailable';o.disabled=true;sel.appendChild(o);return;}
+ (data||[]).forEach(s=>{const o=document.createElement('option');o.value=s.id;o.textContent=[s.company_name||'Supplier',s.country,s.city].filter(Boolean).join(' · ');sel.appendChild(o);});
+}
+async function sendRfq(){
+ const supplier=$('rfqSupplier').value.trim(),subject=$('rfqSubject').value.trim(),message=$('rfqMessage').value.trim();
+ if(!supplier||!subject||!message){alert('Complete supplier ID, subject and message.');return;}
+ const {data,error}=await sb.from('rfqs').insert({buyer_id:currentUser.id,supplier_id:supplier,subject,message,status:'open'}).select().single();
+ if(error){alert('Inquiry could not be sent: '+error.message);return;}$('rfqMessage').value='';await loadRfqs();alert('Trade inquiry sent.');
+}
+async function loadRfqs(){
+ const {data,error}=await sb.from('rfqs').select('id,buyer_id,supplier_id,subject,message,status,created_at').order('created_at',{ascending:false}).limit(50);
+ $('rfqList').innerHTML='';if(error){$('rfqList').textContent='Could not load inquiries: '+error.message;return;}
+ if(!data?.length){$('rfqList').textContent='No trade inquiries yet.';return;}
+ data.forEach(r=>{const d=document.createElement('div');d.className='item';const b=document.createElement('b');b.textContent=r.subject;const p=document.createElement('p');p.className='muted';p.textContent=r.message;const small=document.createElement('small');small.textContent=`${r.status} · ${r.created_at?new Date(r.created_at).toLocaleString():''} · ${r.buyer_id===currentUser.id?'Sent':'Received'}`;d.append(b,p,small);$('rfqList').appendChild(d);});
+}
+function openTab(tab){document.querySelectorAll('[id^="tab-"]').forEach(x=>x.classList.add('hidden'));$('tab-'+tab).classList.remove('hidden');document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x.dataset.tab===tab));}
+async function signOut(){if(sb)await sb.auth.signOut();currentUser=null;showLanding();}
+function loadCountries(){
+ const countries=['United States','United Kingdom','Pakistan','United Arab Emirates','Canada','Australia','Germany','France','India','China','Japan','Saudi Arabia','Turkey','Netherlands','Italy','Spain','Bangladesh','South Africa','Other'];
+ $('country').innerHTML=countries.map(c=>`<option>${c}</option>`).join('');$('country').value='United States';
+ $('role').addEventListener('change',e=>{accountRole=e.target.value;$('companyFields').classList.toggle('hidden',accountRole!=='supplier');});
+}
+loadCountries();initSupabase();
+</script>
+</body></html>
